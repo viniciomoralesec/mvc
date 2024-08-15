@@ -11,7 +11,7 @@ if ($method == "OPTIONS") {
 
 require_once('../models/proveedores.model.php');
 error_reporting(0);
-$proveedores = new Proveedores;
+$proveedores = new Provedores;
 
 switch ($_GET["op"]) {
         //TODO: operaciones de proveedores

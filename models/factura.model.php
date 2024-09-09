@@ -1,9 +1,10 @@
 <?php
+// TODO: Clase de Factura Tienda Cel@g
 require_once('../config/config.php');
 
 class Factura
 {
-    public function todos() 
+    public function todos() // select * from factura
     {
         $con = new ClaseConectar();
         $con = $con->ProcedimientoParaConectar();
@@ -13,7 +14,7 @@ class Factura
         return $datos;
     }
 
-    public function uno($idFactura) 
+    public function uno($idFactura) // select * from factura where id = $idFactura
     {
         $con = new ClaseConectar();
         $con = $con->ProcedimientoParaConectar();
@@ -32,7 +33,7 @@ class Factura
                        VALUES ('$Fecha', '$Sub_total', '$Sub_total_iva', '$Valor_IVA', '$Clientes_idClientes')";
             //echo $cadena;
             if (mysqli_query($con, $cadena)) {
-                return $con->insert_id; 
+                return $con->insert_id; // Return the inserted ID
             } else {
                 return $con->error;
             }
@@ -56,7 +57,7 @@ class Factura
                        `Clientes_idClientes`='$Clientes_idClientes'
                        WHERE `idFactura` = $idFactura";
             if (mysqli_query($con, $cadena)) {
-                return $idFactura; 
+                return $idFactura; // Return the updated ID
             } else {
                 return $con->error;
             }
@@ -67,7 +68,7 @@ class Factura
         }
     }
 
-    public function eliminar($idFactura) 
+    public function eliminar($idFactura) // delete from factura where id = $idFactura
     {
         try {
             $con = new ClaseConectar();
